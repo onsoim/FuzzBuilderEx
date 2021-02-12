@@ -7,6 +7,7 @@ ENV NAME expat
 COPY . /exp/expat
 
 # 1. Prepare source codes
+# committed on Aug 13, 2018 (It need to be update)
 RUN mkdir -p /exp/expat/source && cd /exp/expat/source && git clone https://github.com/libexpat/libexpat && cd /exp/expat/source/libexpat && git checkout 39e487da353b20bb3a724311d179ba0fddffc65b && cp /exp/expat/fuzzer_main.cc /exp/expat/source/libexpat/expat && cp /exp/oss-fuzz/source/projects/expat/parse_fuzzer.cc /exp/expat/source/libexpat/expat && cp /exp/expat/build_new.sh /exp/expat/source/libexpat/expat && cp /exp/expat/StandaloneFuzzTargetMain.c /exp/expat/source/libexpat/expat
 
 # 2. FuzzBuilder (seed)

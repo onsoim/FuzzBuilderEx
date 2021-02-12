@@ -60,3 +60,6 @@ build
 # etc
 .DS_Store
 tags
+
+# fuzzing results
+fuzzing/
