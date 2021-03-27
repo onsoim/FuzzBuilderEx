@@ -4,9 +4,10 @@ MAINTAINER Sanghoon(Kevin) Jeon <kppw99@gmail.com>
 # Set environment variable of afl-gcc, afl-g++
 ENV PATH=$PATH:/tool/afl-2.52b
 ENV AFL_PATH=/tool/afl-2.52b
-COPY . /exp/libhtp
 RUN apt-get update && \
 	DEBIAN_FRONTEND=noninteractive apt-get install -y make autoconf automake libtool zlib1g-dev liblzma-dev lib32z1-dev
+
+COPY . /exp/libhtp/
 
 # Download source code
 WORKDIR /exp/libhtp
@@ -15,10 +16,8 @@ WORKDIR /exp/libhtp/source
 RUN git clone https://github.com/kobolabs/liblzma liblzma
 RUN git clone https://github.com/OISF/libhtp.git libhtp
 WORKDIR /exp/libhtp/source/liblzma
-# committed on Nov 28, 2013 (but this is the only commit)
 RUN git checkout 87b7682ce4b1c849504e2b3641cebaad62aaef87
 WORKDIR /exp/libhtp/source/libhtp
-# committed on Nov 5, 2020 (but this is the latest one among offitial commits)
 RUN git checkout e198e8f280dec64f048b7e8e84cb33753c2b919d
 
 # Build project

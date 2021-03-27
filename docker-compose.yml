@@ -9,12 +9,13 @@ services:
 
     c-ares_pre:
         build:
-            context: ./projects/c-ares
-            dockerfile: pre.Dockerfile
+            context: .
+            dockerfile: ./projects/c-ares/pre.Dockerfile
         image: fuzzbuilderex:c-ares_pre
     c-ares:
         build:
-            context: ./projects/c-ares
+            context: .
+            dockerfile: ./projects/c-ares/Dockerfile
         image: fuzzbuilderex:c-ares
 
     boringssl_pre:
@@ -29,22 +30,24 @@ services:
 
     json-c_pre:
         build:
-            context: ./projects/json-c
-            dockerfile: pre.Dockerfile
+            context: .
+            dockerfile: ./projects/json-c/pre.Dockerfile
         image: fuzzbuilderex:json-c_pre
-    json-c:
+    json_c:
         build:
-            context: ./projects/json-c
+            context: .
+            dockerfile: ./projects/json-c/Dockerfile
         image: fuzzbuilderex:json-c
 
     libhtp_pre:
         build:
-            context: ./projects/libhtp
-            dockerfile: pre.Dockerfile
+            context: .
+            dockerfile: ./projects/libhtp/pre.Dockerfile
         image: fuzzbuilderex:libhtp_pre
     libhtp:
         build:
-            context: ./projects/libhtp
+            context: .
+            dockerfile: ./projects/libhtp/Dockerfile
         image: fuzzbuilderex:libhtp
 
     expat_pre:
